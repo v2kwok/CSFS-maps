@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Carrier Sekani Wildfires</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+
+</head>
+<body>
+<style>
+
+/*All code below this is CSS. Key elements are map, sidebar, time slider, search bar, rcp buttons and graphs*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+h1 {
+  font-size: 26px;
+  line-height: 30px;
+}
+
+h2 {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #2dc4b2;
+}
+
+
+#TreatyAreaButton {
+  display: block;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  margin: 0px auto;
+  width: 8%;
+  height: 60px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 13px;
+  text-align: center;
+  color: 	#ffffff;
+  background: #2b0203;
+ }
+
+ #FiresCSFSButton {
+   display: block;
+   position: absolute;
+   left: 10px;
+   bottom: 80px;
+   margin: 0px auto;
+   width: 8%;
+   height: 60px;
+   padding: 10px;
+   border: none;
+   border-radius: 3px;
+   font-size: 13px;
+   text-align: center;
+   color: 	#ffffff;
+   background: #2b0203;
+  }
+
+  #FiresBufferButton {
+    display: block;
+    position: absolute;
+    left: 10px;
+    bottom: 150px;
+    margin: 0px auto;
+    width: 8%;
+    height: 60px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    text-align: center;
+    color: 	#ffffff;
+    background: #2b0203;
+   }
+
+.Fire-info {
+  position: absolute;
+  font-family: sans-serif;
+  margin-top: 5px;
+  right: 5px;
+  padding: 5px;
+  width: 15%;
+  border: 2px solid black;
+  font-size: 14px;
+  color: #222;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+/*All code below this is for the dropdown button*/
+	.dropbtn {
+		background-color: #5e8262;
+		color: white;
+		padding: 16px;
+		font-size: 16px;
+		width: 262px;
+		position: absolute;
+		left: 10px;
+		top: 5px;
+		border: none;
+		cursor: pointer;
+	}
+
+	.dropbtn:hover, .dropbtn:focus {
+		background-color: #ffffff;
+		color: #5e8262;
+	}
+
+	#myInput {
+		box-sizing: border-box;
+		background-position: 14px 12px;
+		background-repeat: no-repeat;
+		font-size: 16px;
+		padding: 14px 20px 12px 45px;
+		border: none;
+		border-bottom: 1px solid #ddd;
+		position: relative;
+	}
+
+	#myInput:focus {outline: 3px solid #ddd;}
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		left: 10px;
+		background-color: #f6f6f6;
+		min-width: 230px;
+		border: 1px solid #ddd;
+		z-index: 1;
+	}
+
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {background-color: #5e8262}
+
+	.show {display:block;}
+
+	.map-overlay4 {
+		position: absolute;
+		top: 110px;
+		right: 5px;
+		background: #5e8262;
+		font-family: Arial, sans-serif;
+		overflow: auto;
+		display: inline-block;
+		border: 2px solid black;
+	  font-size: 14px;
+	  color: #222;
+	  background-color: #fff;
+	  border-radius: 3px;
+	}
+
+	#features4 {
+		top: 10;
+		height: 10%;
+		margin-top: 20px;
+		width: 15.6%;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+	}
+
+	.session {
+		margin-bottom: 15px;
+	}
+
+	.row {
+		height: 12px;
+		width: 90%
+	}
+
+	.colors {
+		background: linear-gradient(to right, #cf6b70, #963035, #570f12, #2b0203);
+		margin-bottom: 5px;
+	}
+
+	.label {
+		width: 24.1%;
+		display: inline-block;
+		text-align: center;
+	}
+
+</style>
+
+<div id='map'></div>
+<button id="TreatyAreaButton"><b>Show Treaty Area</b></button>
+<button id="FiresCSFSButton"><b>Show Fires Within Treaty Area</b></button>
+<button id="FiresBufferButton"><b>Show Fires Within 100km of Treaty Area</b></button>
+<div class='Fire-info' id='FirePopup'>
+  <div><strong>Colloquial Fire Name:</strong> <span id='FireName'></span></div><br>
+  <div><strong>Hectares Burned:</strong> <span id='HectaresBurned'></span></div><br>
+  <div><strong>Date Out:</strong> <span id='DateOut'></span></div>
+</div>
+
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn"><b>Select Community</b></button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a href="#BurnsLake" id = burnslake>Burns Lake</a>
+		<a href="#Wet'suwet'en" id = wetsuweten>Wet'suwet'en</a>
+		<a href="#Saikuz" id = saikuz>Saik'uz</a>
+		<a href="#Nadleh" id = nadleh>Nadleh</a>
+		<a href="#Stellaten" id = stellaten>Stellat'en</a>
+		<a href="#LBWoyenne" id = lbwoyenne>Lake Babine - Woyenne</a>
+		<a href="#LBTachet" id = lbtachet>Lake Babine - Tachet</a>
+		<a href="#NeeTahiBuhn" id = neetahibuhn>Nee Tahi-Buhn</a>
+		<a href="#Cheslatta" id = cheslatta>Cheslatta Carrier</a>
+		<a href="#SkinTyee" id = skintyee>Skin Tyee</a>
+		<a href="#TaklaLake" id = taklalake>Takla Lake</a>
+		<a href="#Yekooche" id = yekooche>Yekooche</a>
+		<a href="#FortBabine" id = fortbabine>Fort Babine</a>
+  </div>
+</div>
+
+<div class='map-overlay4' id='features4'><p style="color:#ffffff">
+	<div class='session' id='sliderbar'>
+		<h2>Date: <label id='active-date'>04/26/2018</label></h2>
+		<input id='slider' class='row' type='range' min='2010' max='2090' step='20' value='2010'/>
+</div>
+
+</div>
+
+
+<script>
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNvY3Jvc3NvMTMiLCJhIjoiY2wwaHIxc2FqMGJhczNqcWhjcmc5dng0NSJ9.IYMY8BJX7JNcbPcebCJsOg';
+
+// centred on mainland Australia
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/francocrosso13/cl1nyqi3v00ah14nws3mxb6kf',
+    zoom: 5.67,
+    center: [-125.508, 54.120],
+    minZoom: 4,
+    });
+
+const NameDisplay = document.getElementById('FireName');
+const HectaresBurnedDisplay = document.getElementById('HectaresBurned');
+const DateOutDisplay = document.getElementById('DateOut');
+
+// add treaty boundaries
+	map.on('load', () => {
+	map.addSource('Treaty_Data', {
+		'type': 'geojson',
+		'data': "https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/Treaty_boundaries.geojson"
+		});
+  });
+
+  map.on('load', () => {
+  map.addSource('Fires_Data', {
+    'type': 'geojson',
+    'data': "https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/Fires_CSFS.geojson"
+  });
+});
+
+  map.on('load', () => {
+  map.addSource('Fires_Data_Buffer', {
+    'type': 'geojson',
+    'data': "https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/Fires_100km_Buffer.geojson"
+  });
+});
+
+//map.addControl(new mapboxgl.ScaleControl({position: 'top-left'}));
+
+		// pair of functions to harvest input from species search bar. ALso pulled from stack overflow
+		function myFunction() {
+		  document.getElementById("myDropdown").classList.toggle("show");
+		}
+		function filterFunction() {
+		  var input, filter, ul, li, a, i;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  div = document.getElementById("myDropdown");
+		  a = div.getElementsByTagName("a");
+		  for (i = 0; i < a.length; i++) {
+		    txtValue = a[i].textContent || a[i].innerText;
+		    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		      a[i].style.display = "";
+		    } else {
+		      a[i].style.display = "none";
+		    }
+		  }
+		}
+
+//DropDown Zooms
+	document.getElementById('burnslake').addEventListener('click', () => {
+  		map.flyTo({
+				center: [-125.76719284057619,54.23674151771537],
+				zoom:10,
+				essential: true});
+			map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+			document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('wetsuweten').addEventListener('click', () => {
+		map.flyTo({
+			center: [-125.88220596313475,54.326735363462106],
+			zoom:10,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('saikuz').addEventListener('click', () => {
+		map.flyTo({
+			center: [-124.06911849975586,53.95992359899387],
+			zoom:10,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('nadleh').addEventListener('click', () => {
+		map.flyTo({
+			center: [-124.60976600646973,54.07344097398336],
+			zoom:10,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('stellaten').addEventListener('click', () => {
+		map.flyTo({
+			center: [-124.90854263305664,54.06107551573467],
+			zoom:10,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('lbwoyenne').addEventListener('click', () => {
+		map.flyTo({
+			center: [-125.76358795166016,54.253592732719106],
+			zoom:10,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('lbtachet').addEventListener('click', () => {
+		map.flyTo({
+			center: [-126.14690780639648,54.81681041595936],
+			zoom:10,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('neetahibuhn').addEventListener('click', () => {
+		map.flyTo({
+			center: [-125.80461502075194,54.02209142616588],
+			zoom:10,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('cheslatta').addEventListener('click', () => {
+		map.flyTo({
+			center: [-125.7685661315918,54.02057870158285],
+			zoom:10.3,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('skintyee').addEventListener('click', () => {
+		map.flyTo({
+			center: [-125.73131561279297,54.015132437554136],
+			zoom:10.3,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('taklalake').addEventListener('click', () => {
+		map.flyTo({
+			center: [-125.86761474609374,55.441479359140686],
+			zoom:10,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('yekooche').addEventListener('click', () => {
+		map.flyTo({
+			center: [-125.08140563964844,54.59892007568796],
+			zoom:10,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+document.getElementById('fortbabine').addEventListener('click', () => {
+		map.flyTo({
+			center: [-125.76719284057619,54.23674151771537],
+			zoom:10,
+			essential: true});
+		map.setLayoutProperty('treaty-boundaries', 'visibility', 'none');
+		document.getElementById("myDropdown").classList.remove("show");
+})
+
+  document.getElementById('TreatyAreaButton').addEventListener('click', () => {
+    map.addLayer({
+				'id': 'Treaty_Boundaries',
+				'type': 'fill',
+				'source': 'Treaty_Data',
+				'layout': {},
+				'paint': {
+					'fill-color': '#cdb0e8',
+					'fill-opacity': 0.75
+				}
+			});
+    });
+
+//symbology on mapbox studio
+    document.getElementById('FiresCSFSButton').addEventListener('click', () => {
+		  map.addLayer({
+          'id': 'Fires_CSFS',
+          'type': 'fill',
+          'source': 'Fires_Data',
+          'layout': {},
+          'paint': {
+            'fill-color': '#f20000',
+            'fill-opacity': 1
+          }
+        });
+      });
+
+    document.getElementById('FiresBufferButton').addEventListener('click', () => {
+				map.removeLayer("Fires_CSFS");
+				map.addLayer({
+            'id': 'Fires_Buffer',
+            'type': 'fill',
+            'source': 'Fires_Data_Buffer',
+            'layout': {},
+            'paint': {
+              'fill-color': '#de8273',
+              'fill-opacity': 1
+            }
+          });
+			map.addLayer({
+							'id': 'Fires_CSFS',
+							'type': 'fill',
+							'source': 'Fires_Data',
+							'layout': {},
+							'paint': {
+								'fill-color': '#f20000',
+								'fill-opacity': 1
+							}
+						});
+        });
+
+
+	map.on('mousemove', (event) => {
+				  const fires = map.queryRenderedFeatures(event.point, {
+				  layers: ['Fires_Buffer']
+				  });
+				  document.getElementById('FirePopup').innerHTML = fires.length
+				    ? `<p><strong><em></strong><b>Colloquial Fire Name:   </b>${fires[0].properties.Fire_Names_2018_COLLOQUIAL_NAME}</em></p>
+						<p><strong><em></strong><b>Hectares Burned:   </b>${fires[0].properties.SIZE_HA}ha</em></p>
+						<p><strong><em></strong><b>Date Out:   </b>${fires[0].properties.Date_Out_DATE_OUT}</em></p>`
+				    : `<p><b>Colloquial Fire Name:<br><br>
+							Hectares Burned:<br><br>
+							Date Out:</p>`;
+				});
+
+map.on('mousemove', (event) => {
+							  const fires1 = map.queryRenderedFeatures(event.point, {
+							  layers: ['Fires_CSFS']
+							  });
+							  document.getElementById('FirePopup').innerHTML = fires1.length
+							    ? `<p><strong><em></strong><b>Colloquial Fire Name:   </b>${fires1[0].properties.Fire_Names}</em></p>
+									<p><strong><em></strong><b>Hectares Burned:   </b>${fires1[0].properties.SIZE_HA} ha</em></p>
+									<p><strong><em></strong><b>Date Out:   </b>${fires1[0].properties.Date_Out_D}</em></p>`
+							    : `<p><b>Colloquial Fire Name:<br><br>
+										Hectares Burned:<br><br>
+										Date Out:</p>`;
+							});
+
+
+
+//end of script
+</script>
+</body>
+</html>
