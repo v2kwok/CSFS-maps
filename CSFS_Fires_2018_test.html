@@ -502,6 +502,25 @@ map.addLayer({
 });
 });
 
+map.on('load', () => {
+map.addSource('fire_points', {
+type: 'geojson',
+// Use a URL for the value for the `data` property.
+data: 'https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/Merged_Fire_Hotspots.geojson'
+});
+
+map.addLayer({
+'id': 'fire_points_layer',
+'type': 'circle',
+'source': 'fire_points',
+'paint': {
+'circle-radius': 6,
+'circle-stroke-width': 0,
+'circle-color': '#FF0000'
+}
+});
+});
+
 		// pair of functions to harvest input from species search bar. ALso pulled from stack overflow
 		function myFunction() {
 		  document.getElementById("myDropdown").classList.toggle("show");

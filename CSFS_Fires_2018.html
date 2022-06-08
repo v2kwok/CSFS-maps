@@ -249,12 +249,14 @@ a {
 
 <div id='map'></div>
 
+
 <div class='Fire-info' id='FirePopup'>
   <div><strong>Colloquial Fire Name:</strong> <span id='FireName'></span></div><br>
   <div><strong>Hectares Burned:</strong> <span id='HectaresBurned'></span></div><br>
 	<div><strong>Date Started:</strong> <span id='DateStart'></span></div><br>
   <div><strong>Date Out:</strong> <span id='DateOut'></span></div>
 </div>
+
 
 <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn"><b>Select Community</b></button>
@@ -263,7 +265,7 @@ a {
     <a href="#BurnsLake" id = burnslake>Burns Lake</a>
 		<a href="#Wet'suwet'en" id = wetsuweten>Wet'suwet'en</a>
 		<a href="#Saikuz" id = saikuz>Saik'uz</a>
-		<a href="#Nadleh" id = nadleh>Nadleh</a>
+		<a href="#Nadleh" id = nadleh>Nadleh Whut'en</a>
 		<a href="#Stellaten" id = stellaten>Stellat'en</a>
 		<a href="#LBWoyenne" id = lbwoyenne>Lake Babine - Woyenne</a>
 		<a href="#LBTachet" id = lbtachet>Lake Babine - Tachet</a>
@@ -276,10 +278,11 @@ a {
   </div>
 </div>
 
+
 <div class='map-overlay4' id='features4'><p style="color:#ffffff">
 	<div class='session' id='sliderbar'>
 		<h2>Date: <label id='active-date'>04/26/2018</label></h2>
-		<input id='slider' class='row' type='range' min='1' max='39' step='1' value='1'/>
+		<input id='slider' class='row' type='range' min='1' max='37' step='1' value='1'/>
 </div>
 <div class='session'>
   <h2>PM2.5 Air Pollution Level</h2>
@@ -296,33 +299,31 @@ a {
 </div>
 </div>
 
+
 <div class='map-overlay5' id='features5'><p style="color:#ffffff">
 	<div id="state-legend" class="legend">
 	<h4>Map Legend</h4>
 	<div><span style="background-color: #050505"></span>CSFS Community</div>
-	<div><span style="background-color: #45e87e"></span>Air Sensor</div>
-
-
+	<div><span style="background-color: #45e87e"></span>Provincial Air Sensor</div>
   </div>
-
 </div>
 
 
 <div class='map-overlay6' id='features6'><p style="color:#ffffff">
 	<H1 id="CommunityTitle"></H1>
-	<img id="BurnsLakeGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/Burns_Lake.png" alt="Burns Lake 2018" style="width:508px;height:302px">
-	<img id="WetsuwetenGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/Wetsuweten.png" alt="Wet'suwet'en 2018" style="width:508px;height:302px">
-	<img id="CheslattaGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/Cheslatta.png" alt="Cheslatta 2018" style="width:508px;height:302px">
-	<img id="FortBabineGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/FortBabine.png" alt="Fort Babine 2018" style="width:508px;height:302px">
-	<img id="NadlehGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/Nadleh.png" alt="Nadleh 2018" style="width:508px;height:302px">
-	<img id="NeeTahiBuhnGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/NeeTahiBuhn.png" alt="Nee Tahi-Buhn 2018" style="width:508px;height:302px">
-	<img id="SaikuzGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/Saikuz.png" alt="Saik'uz 2018" style="width:508px;height:302px">
-	<img id="SkinTyeeGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/SkinTyee.png" alt="Skin Tyee 2018" style="width:508px;height:302px">
-	<img id="StellatenGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/Stellaten.png" alt="Stellat'en 2018" style="width:508px;height:302px">
-	<img id="TachetGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/Tachet.png" alt="Lake Babine - Tachet 2018" style="width:508px;height:302px">
-	<img id="TaklaGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/Takla.png" alt="Takla Lake 2018" style="width:508px;height:302px">
-	<img id="WoyenneGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/Woyenne.png" alt="Lake Babine - Woyenne 2018" style="width:508px;height:302px">
-	<img id="YekoocheGraph" src="https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/graphs/Yekooche.png" alt="Yekooche 2018" style="width:508px;height:302px">
+	<img id="BurnsLakeGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/Burns_Lake.png" alt="Burns Lake 2018" style="width:508px;height:302px">
+	<img id="WetsuwetenGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/Wetsuweten.png" alt="Wet'suwet'en 2018" style="width:508px;height:302px">
+	<img id="CheslattaGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/Cheslatta.png" alt="Cheslatta 2018" style="width:508px;height:302px">
+	<img id="FortBabineGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/FortBabine.png" alt="Fort Babine 2018" style="width:508px;height:302px">
+	<img id="NadlehGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/Nadleh.png" alt="Nadleh 2018" style="width:508px;height:302px">
+	<img id="NeeTahiBuhnGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/NeeTahiBuhn.png" alt="Nee Tahi-Buhn 2018" style="width:508px;height:302px">
+	<img id="SaikuzGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/Saikuz.png" alt="Saik'uz 2018" style="width:508px;height:302px">
+	<img id="SkinTyeeGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/SkinTyee.png" alt="Skin Tyee 2018" style="width:508px;height:302px">
+	<img id="StellatenGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/Stellaten.png" alt="Stellat'en 2018" style="width:508px;height:302px">
+	<img id="TachetGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/Tachet.png" alt="Lake Babine - Tachet 2018" style="width:508px;height:302px">
+	<img id="TaklaGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/Takla.png" alt="Takla Lake 2018" style="width:508px;height:302px">
+	<img id="WoyenneGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/Woyenne.png" alt="Lake Babine - Woyenne 2018" style="width:508px;height:302px">
+	<img id="YekoocheGraph" src="https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/graphs/Yekooche.png" alt="Yekooche 2018" style="width:508px;height:302px">
 	<H3 id="DaysAbove35"></H3>
 	<H3 id="DaysAbove55"></H3>
 	<H3 id="DaysAbove150"></H3>
@@ -335,9 +336,10 @@ a {
 
 <script>
 
+//Access token for Camp Lab Mapbox account
 mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNvY3Jvc3NvMTMiLCJhIjoiY2wwaHIxc2FqMGJhczNqcWhjcmc5dng0NSJ9.IYMY8BJX7JNcbPcebCJsOg';
 
-// centred on mainland Australia
+// centred on CSFS Territory
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/francocrosso13/cl1nyqi3v00ah14nws3mxb6kf',
@@ -346,15 +348,20 @@ var map = new mapboxgl.Map({
     minZoom: 4
     });
 
+//hide place info pop up
+document.getElementById('features6').style.display = 'none';
+
+//Popup for the top right corner showing fire information
 const NameDisplay = document.getElementById('FireName');
 const HectaresBurnedDisplay = document.getElementById('HectaresBurned');
 const DateStartDisplay = document.getElementById("DateStart");
 const DateOutDisplay = document.getElementById('DateOut');
 
+  //air quality data loaded in several polygons
 	map.on('load', () => {
 	map.addSource('PM25_Data', {
 		'type': 'geojson',
-		'data': "https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/data/airqualitydata/csfs_2018_pollution.geojson"
+		'data': "https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/data/airqualitydata/csfs_2018_pollution.geojson"
 	});
 	map.addLayer({
 		'id': 'PM25_2018',
@@ -364,21 +371,22 @@ const DateOutDisplay = document.getElementById('DateOut');
 		'paint': {
 			'fill-color': {
 				property: 'Pollution_Level',
-				stops: [[1, '#00B050'], [2, '#FFC000'],[3, '#FF9900'], [4, '#FF0000'],[5, '#7030A0'], [6, '#660066']]
+				stops: [[1, '#00B050'], [2, '#FFC000'],[3, '#FF9900'], [4, '#FF0000'],[5, '#7030A0'], [6, '#660066']] //colour scheme matches WHO air pollution  index
 			},
 			'fill-opacity': 0.25
 
 		},
-		filter:  ['==', ['number', ['get', 'Week_Number']], 1]
+		filter:  ['==', ['number', ['get', 'Week_Number']], 1] //sets map to first week of fire season
 		});
 		map.moveLayer('PM25_2018', 'communities');
 		//map.moveLayer('PM25_2018', 'sensors');
 	});
 
+  //load fire polygons for 2018 fire season
   map.on('load', () => {
   map.addSource('Fires_Data', {
     'type': 'geojson',
-    'data': "https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/Fires_CSFS.geojson"
+    'data': "https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/Fires_CSFS.geojson"
   });
 	map.addLayer({
 		'id': 'Fires_CSFS',
@@ -391,15 +399,16 @@ const DateOutDisplay = document.getElementById('DateOut');
 			'fill-outline-color': '#FF0000'
 
 		},
-		filter:  ['==', ['number', ['get', 'Fire_Weeks_Week_Start']], 1]
+		filter:  ['==', ['number', ['get', 'Fire_Weeks_Week_Start']], 1] //set to first week of fire season
 		});
 		map.moveLayer('Fires_Data', 'communities');
 	});
 
+  //loads CSFS area boundary
 	map.on('load', () => {
   map.addSource('CSFS_Border', {
     'type': 'geojson',
-    'data': "https://raw.githubusercontent.com/fcrossley-hli/CSFS-maps/main/csfs_border.geojson"
+    'data': "https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/csfs_border.geojson"
   });
 	map.addLayer({
 		'id': 'CSFS',
@@ -413,7 +422,7 @@ const DateOutDisplay = document.getElementById('DateOut');
 	})
 	});
 
-
+  //Place labels for large towns
 	const places = {
 	'type': 'FeatureCollection',
 	'features': [{
@@ -450,6 +459,7 @@ const DateOutDisplay = document.getElementById('DateOut');
 																'coordinates': [-127.1686, 54.7824]}}
 ]};
 
+//load place labels
 map.on('load', () => {
 // Add a GeoJSON source containing place coordinates and information.
 map.addSource('places', {
@@ -471,12 +481,26 @@ map.addLayer({
 });
 });
 
-document.getElementById('features6').style.display = 'none';
+//loads the point data of the air quality sensors
+map.on('load', () => {
+map.addSource('ems_stations', {
+type: 'geojson',
+// Use a URL for the value for the `data` property.
+data: 'https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/data/airqualitydata/ems_stations.geojson'
+});
 
-
-
-
-//map.addControl(new mapboxgl.ScaleControl({position: 'top-left'}));
+map.addLayer({
+'id': 'ems_stations_layer',
+'type': 'circle',
+'source': 'ems_stations',
+'paint': {
+'circle-radius': 6,
+'circle-stroke-width': 2,
+'circle-color': '#45e87e',
+'circle-stroke-color': 'black'
+}
+});
+});
 
 		// pair of functions to harvest input from species search bar. ALso pulled from stack overflow
 		function myFunction() {
@@ -524,7 +548,7 @@ document.getElementById('burnslake').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = "While the community of Burns Lake was not directly threatened by the Shovel Lake Fire that took place to the East of the town, it did face sustained unhealthy levels of PM 2.5 air pollution. The entire town experienced atleast 9 days of sustained unhealthy air quality levels, while sensitive groups were exposed for double this."
+	document.getElementById('FireSeasonDescription').innerText = "While the community of Burns Lake was not directly threatened by the Shovel Lake Fire that took place to the East of the town, it did face sustained unhealthy levels of PM 2.5 air pollution. The entire town experienced at least 9 days of sustained unhealthy air quality levels, while sensitive groups were exposed for double this."
 	document.getElementById('FireSeasonDescription2').innerText = " "
 	document.getElementById('FireSeasonDescription3').innerText = "The levels seen in Burns Lake may not have been as bad as seen in the surrounding communities, however there was still a very real threat to respiratory health of community members. It is vital that warnings and advice are given in similar scenarios going forward."
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'visible')
@@ -569,9 +593,9 @@ document.getElementById('wetsuweten').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "Much alike the nearby Burns Lake community, the Wet’suwet’en community did not experience the worst that the 2018 fire season had to offer, especially when compared to other CSFS nations who were downwind of the Shovel Lake Fire. The Wet’suwet’en location to North West of the major nearby fires meant that they were able to escape the extreme pollution levels seen by other nations in August 2018. "
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "Nonetheless, they did experience sustained levels of high PM2.5 over the season. Sensitive individuals were exposed for over 16 days, while the rest of the community still experienced several days of high pollution levels that ranged from unhealthy (9 days) to hazardous (1 day). "
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'visible')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -616,7 +640,7 @@ document.getElementById('saikuz').addEventListener('click', () => {
 	document.getElementById('FortBabineGraph').style.display = 'none';
 	document.getElementById('FireSeasonDescription').innerText = "In terms of PM 2.5 air pollution, the Saik'uz community were the worst affected in the CSFS healthcare area. Their proximity to the Shovel Lake Fire, and location downwind from the fire meant that consistent unhealthy levels were seen throughout July, August and September. Sensitive groups were exposed for 30 days, while the general public had 24 days of unhealthy air quality."
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "It is vital that in future situations, in which sustained hazardous air quality occurs over a period of several days, that the community are immediately informed of the risk to their respiratory health, and are given the recommendation to evacuate if they feel they must do so."
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'visible')
@@ -659,9 +683,9 @@ document.getElementById('nadleh').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "The Nadleh Whut’en community were also strongly affected by the fire season in 2018. The Shovel Lake Fire came within close proximity of the community (∼5km). The community was consequently evacuated due to the danger that Shovel Lake presented. Yet, the threat from air quality was as dangerous to the community as the fire."
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "PM 2.5 levels did not drop below 35 µg/m3 for a month, leaving sensitive individuals very exposed. In Mid-August levels reached 594 µg/m3, leaving even the healthiest community members exposed to an extremely unhealthy air quality."
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -704,9 +728,9 @@ document.getElementById('stellaten').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "The location of the Stellat’en community downwind from several of the region’s largest fires in the 2018 season (Nadina Lake, Shovel Lake, Island Lake & Verdun) mean that this community was also affected greatly by smoke. Like the nearby Nadleh Whut’en community, sensitive Stellat’en community members were left exposed for over 20 days, while the rest of the community spent 13 days at unhealthy levels. 3 of these days were ranked as very unhealthy while 1 was ranked as hazardous."
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "An evacuation order was announced, yet communication was once again poor from the provincial government."
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -749,9 +773,9 @@ document.getElementById('lbwoyenne').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "The Woyenne (Lake Babine) community faired similarly to the other communities surrounding Burns Lake. Their proximity to several large fires meant that air quality was less than stellar. Sensitive groups were exposed for 17 days in the season, while the rest of the community was exposed to unhealthy air quality for 9 days."
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "Yet, their location relatively upwind of the main fires meant that they escaped the worst of the air quality. While they saw similar patterns to the rest of the CSFS communities, the graph shown above is evidently less extreme than in other communities such as Stellat’en or Nadleh Whut’en."
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -794,9 +818,9 @@ document.getElementById('lbtachet').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "The Tachet (Lake Babine) community were fortunate to be located to the West (and therefore downwind) of the region’s largest fires. Consequently, they were located outside of the worst of the region’s air pollution. Sensitive individuals still needed to be cautious as they experienced 12 days where they were notably at threat. For the rest of the community, 7 days were noted as yielding unhealthy air quality while no days were classed as hazardous."
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "Despite the nation having gotten off lightly in the 2018 fire season, it is still essential that early warning systems are put into place going forward in order to mitigate the damages of poor air quality in future fire seasons."
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -839,9 +863,9 @@ document.getElementById('neetahibuhn').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "The communities to the South of Francois Lake were heavily surrounded by 4 of the region’s largest fires (Nadina Lake, Shovel Lake, Island Lake & Verdun), meaning that their air quality was notably affected. Vulnerable individuals were exposed for at least 16 days, while the rest of the community was exposed for at least 9. 1 day was noted as possessing hazardous air quality. "
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "However, the effects were relatively noted in comparison to the communities on the East of the Lake. "
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -884,9 +908,9 @@ document.getElementById('cheslatta').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "The communities to the South of Francois Lake were heavily surrounded by 4 of the region’s largest fires (Nadina Lake, Shovel Lake, Island Lake & Verdun), meaning that their air quality was notably affected. Vulnerable individuals were exposed for at least 16 days, while the rest of the community was exposed for at least 9. 1 day was noted as possessing hazardous air quality. "
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "However, the effects were relatively noted in comparison to the communities on the East of the Lake. "
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -929,9 +953,9 @@ document.getElementById('skintyee').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "The communities to the South of Francois Lake were heavily surrounded by 4 of the region’s largest fires (Nadina Lake, Shovel Lake, Island Lake & Verdun), meaning that their air quality was notably affected. Vulnerable individuals were exposed for at least 16 days, while the rest of the community was exposed for at least 9. 1 day was noted as possessing hazardous air quality. "
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "However, the effects were relatively noted in comparison to the communities on the East of the Lake. "
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -974,9 +998,9 @@ document.getElementById('taklalake').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'inline';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "The Takla community were fortunate to be located to the North of the region’s largest fires. Consequently, they were located outside of the worst of the region’s air pollution. Sensitive individuals still needed to be cautious as they experienced 15 days where they were notably at threat. For the rest of the community, 7 days were noted as yielding unhealthy air quality while no days were classed as hazardous."
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "Despite the nation having gotten off lightly in the 2018 fire season, it is still essential that early warning systems are put into place going forward in order to mitigate the damages of poor air quality in future fire seasons."
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -1019,9 +1043,9 @@ document.getElementById('yekooche').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'inline';
 	document.getElementById('FortBabineGraph').style.display = 'none';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "The Yekooche community is located due north of the Shovel Lake wildfire and their air quality in the summer of 2018 reflected that accordingly. While the community did not experience the extremes that the Stellat’en or Nadleh Whut’en did, they experienced a sustained unhealthy level of air pollution for 13 days (19 days for sensitive individuals). There was at least one hazardous day, and 3 were classed as very unhealthy."
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "Communication was once again poor from the provincial government and impacted decision making in the community."
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -1064,9 +1088,9 @@ document.getElementById('fortbabine').addEventListener('click', () => {
 	document.getElementById('TaklaGraph').style.display = 'none';
 	document.getElementById('YekoocheGraph').style.display = 'none';
 	document.getElementById('FortBabineGraph').style.display = 'inline';
-	document.getElementById('FireSeasonDescription').innerText = ""
+	document.getElementById('FireSeasonDescription').innerText = "The Fort Babine community were fortunate to be located to the West (and therefore downwind) of the region’s largest fires. Consequently, they were located outside of the worst of the region’s air pollution. Sensitive individuals still needed to be cautious as they experienced 6 days where they were notably at threat. For the rest of the community, 3 days were noted as yielding unhealthy air quality while no days were classed as hazardous."
 	document.getElementById('FireSeasonDescription2').innerText = " "
-	document.getElementById('FireSeasonDescription3').innerText = ""
+	document.getElementById('FireSeasonDescription3').innerText = "Despite the nation having gotten off lightly in the 2018 fire season, it is still essential that early warning systems are put into place going forward in order to mitigate the damages of poor air quality in future fire seasons."
 	map.setLayoutProperty('BurnsLakeRed', 'visibility', 'none')
 	map.setLayoutProperty('WetsuwetenRed', 'visibility', 'none')
 	map.setLayoutProperty('SaikuzRed', 'visibility', 'none')
@@ -1082,6 +1106,27 @@ document.getElementById('fortbabine').addEventListener('click', () => {
 	map.setLayoutProperty('FortBabineRed', 'visibility', 'visible')
 
 })
+
+//Fire Data/////////////////////////////////////////////////////////////////////
+//loads the point data of the air quality sensors
+map.on('load', () => {
+map.addSource('fire_points', {
+type: 'geojson',
+// Use a URL for the value for the `data` property.
+data: 'https://raw.githubusercontent.com/camplabpr/CSFS-maps/main/Merged_Fire_Hotspots.geojson'
+});
+
+map.addLayer({
+'id': 'fire_points_layer',
+'type': 'circle',
+'source': 'fire_points',
+'paint': {
+'circle-radius': 6,
+'circle-color': '#FF6347'},
+filter:  ['==', ['number', ['get', 'Week_Number']], 1] //set to first week of fire season
+});
+map.moveLayer('fire_points_layer', 'communities');
+});
 
 
 
@@ -1191,6 +1236,7 @@ document.getElementById('fortbabine').addEventListener('click', () => {
 		document.getElementById("myDropdown").classList.remove("show");
 })
 
+//Mechanics for the interactive hover box in the top right of the map
 map.on('mousemove', (event) => {
 							  const fires1 = map.queryRenderedFeatures(event.point, {
 							  layers: ['Fires_CSFS']
@@ -1283,23 +1329,17 @@ function weeks_dates(week) {
 		week_text = "12/16/2018"
 	} else if (week == 37) {
 		week_text = "12/23/2018"
-	} else if (week == 38) {
-		week_text = "12/30/2018"
-	} else if (week == 39) {
-		week_text = "1/6/2019"
-	} else if (week == 40) {
-		week_text = "1/13/2019"
-	}
+	} 
 	return week_text
 };
 
+//filter for slider to ensure air quality and fire polygons are accurate
 document.getElementById('slider').addEventListener('input', (e) => {
 		const week = parseInt(e.target.value);
 
 		var FireFilter=[
 		    "all",
-		    ['<=', ['number', ['get', 'Fire_Weeks_Week_Start']], week],
-		    ['>=', ['number', ['get', 'Fire_Weeks_Week_Out']], week]
+		    ['<=', ['number', ['get', 'Fire_Weeks_Week_Out']], week]
 		]
 
 		map.setFilter("Fires_CSFS", FireFilter)
@@ -1316,6 +1356,17 @@ document.getElementById('slider').addEventListener('input', (e) => {
 
 			map.setFilter("PM25_2018", PollutionFilter)
 		});
+
+    document.getElementById('slider').addEventListener('input', (e) => {
+  			const week3 = parseInt(e.target.value);
+
+  			var FirePointFilter=[
+  			    "all",
+  			    ['==', ['number', ['get', 'Week_Number']], week3]
+  			]
+
+  			map.setFilter("fire_points_layer", FirePointFilter)
+  		});
 
 	//Scale bar
 	const scale = new mapboxgl.ScaleControl({
